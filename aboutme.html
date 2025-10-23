@@ -18,9 +18,6 @@
       margin-top: 0px;
     }
 
-
-    
-    /* Animated gradient behind everything */
     body::before {
       content: "";
       position: fixed;
@@ -28,19 +25,17 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #000000, #330033, #660022, #ff0044,);
+      background: linear-gradient(135deg, #000000, #330033, #660022,);
       background-size: 400% 400%;
       animation: gradientShift 18s ease infinite;
       z-index: -2;
     }
-
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* Grid lines on top of gradient */
     body::after {
       content: "";
       position: fixed;
@@ -56,7 +51,6 @@
       animation: moveGrid 20s linear infinite;
       z-index: -1;
     }
-
     @keyframes moveGrid {
       0% { background-position: 0 0, 0 0; }
       100% { background-position: 60px 60px, 60px 60px; }
@@ -72,7 +66,6 @@
       background: rgba(0, 0, 0, 0.85);
     }
 
-    /* Floating Squid Game Shapes */
     .shapes span {
       position: absolute;
       width: 60px;
@@ -95,29 +88,62 @@
       100% { transform: translateY(-900px) rotate(360deg); opacity: 0; }
     }
 
-    .container {
-      max-width: 950px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 25px;
-      border: 2px solid #6b0024;
-      box-shadow: 0 0 25px #e6024eaf, 0 0 35px #b1073ffb inset;
-      text-align: center;
-    }
     .output-container {
       background-color: #ce0e0063;
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       min-height: 600px;
       border: 2px solid #000000;
-      align-items: flex-start;
       max-width: 950px;
       margin: 3rem auto;
-     }
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
 
-     h2 {
+    .output-container .pictures img,
+.back .pictures img {
+  display: inline-block;
+  margin: 1rem;
+  width: 180px;          /* slightly larger for clarity */
+  height: 180px;
+  border-radius: 15px;
+  border: 3px solid #ff007f;
+  object-fit: cover;     /* keeps the image ratio correct */
+  box-shadow: 0 0 20px #ff66a3, 0 0 30px #ff1a75 inset;
+  animation: pulse 3s infinite ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.output-container .pictures img:hover,
+.back .pictures img:hover {
+  transform: scale(1.05);   /* zoom in slightly on hover */
+  box-shadow: 0 0 30px #ff3385, 0 0 40px #ff1a75 inset;
+}
+
+/* Optional: makes sure images are centered in their container */
+.output-container .pictures,
+.back .pictures {
+  text-align: center;
+}
+
+/* Adds a soft glowing pulse animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 15px #ff66a3, 0 0 25px #ff1a75 inset;
+  }
+  50% {
+    box-shadow: 0 0 30px #ff3399, 0 0 45px #ff0066 inset;
+  }
+  100% {
+    box-shadow: 0 0 15px #ff66a3, 0 0 25px #ff1a75 inset;
+  }
+}
+
+    .output-container:hover {
+      transform: scale(1.03);
+    }
+
+    h2 {
       color: #ff3366;
       text-shadow: 0 0 15px #4e001a, 0 0 25px #86031d;
       margin-top: 2rem;
@@ -179,6 +205,7 @@
       background: rgba(0, 0, 0, 0.9);
       border-top: 2px solid #ff0055;
     }
+
     .navbar ul {
       list-style-type: none;
       background-color: #660022;
@@ -208,66 +235,59 @@
     }
 
     .social-links {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 15px;
-}
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 15px;
+    }
 
-.social-links a {
-  text-decoration: none;
-  color: #ff99cc;
-  background: rgba(255, 0, 85, 0.15);
-  padding: 10px 18px;
-  border-radius: 25px;
-  border: 2px solid #ff007f;
-  font-weight: bold;
-  text-shadow: 0 0 10px #660022;
-  box-shadow: 0 0 12px #ff0055;
-  transition: all 0.3s ease;
-}
+    .social-links a {
+      text-decoration: none;
+      color: #ff99cc;
+      background: rgba(255, 0, 85, 0.15);
+      padding: 10px 18px;
+      border-radius: 25px;
+      border: 2px solid #ff007f;
+      font-weight: bold;
+      text-shadow: 0 0 10px #660022;
+      box-shadow: 0 0 12px #ff0055;
+      transition: all 0.3s ease;
+    }
 
-.social-links a:hover {
-  background: #ff007f;
-  color: #fff;
-  box-shadow: 0 0 25px #ff3366, 0 0 45px #86031d;
-  transform: scale(1.1);
-}
-
-  
+    .social-links a:hover {
+      background: #ff007f;
+      color: #fff;
+      box-shadow: 0 0 25px #ff3366, 0 0 45px #86031d;
+      transform: scale(1.1);
+    }
   </style>
 </head>
-<body>
-  <header>MY SELF PROFILE </header>
-  
 
+<body>
+  <header>MY SELF PROFILE</header>
+  
   <nav class="navbar">
     <ul>
       <li><a href="aboutme.html">ABOUT ME</a></li>
       <li><a href="family.html">FAMILY</a></li>
       <li><a href="journey.html">JOURNEY</a></li>
       <li><a href="myarts.html">HOBBIES</a></li>
-      
-      <li><a href="index.html"> HOME</a> </li>
+      <li><a href="index.html">HOME</a></li>
     </ul>
-    </nav>
+  </nav>
 
-    
-  
-   
-  <!-- Floating shapes -->
   <div class="shapes">
     <span class="circle" style="top:110%; left:0%; animation-delay:0s;"></span>
-    <span class="square" style="top:95%; left:5%; animation-delay:2s;"></span>
-    <span class="triangle" style="top:100%; left:10%; animation-delay:1s;"></span>
+    <span class="square" style="top:95%; left:5%; animation-delay:5s;"></span>
+    <span class="triangle" style="top:100%; left:10%; animation-delay:4s;"></span>
     <span class="circle" style="top:90%; left:90%; animation-delay:2s;"></span>
      
     <span class="circle" style="top:110%; left:95%; animation-delay:1s;"></span>
     <span class="square" style="top:95%; left:10%; animation-delay:0s;"></span> 
-   <span class="square" style="top:95%; left:80%; animation-delay:1s;"></span>
+   <span class="square" style="top:95%; left:80%; animation-delay:4s;"></span>
     <span class="square" style="top:95%; left:86%; animation-delay:0s;"></span>
     <span class="triangle" style="top:100%; left:70%; animation-delay:2s;"></span>
-       <span class="triangle" style="top:100%; left:5%; animation-delay:0s;"></span>
+       <span class="triangle" style="top:100%; left:5%; animation-delay:6s;"></span>
     <span class="square" style="top:95%; left:100%; animation-delay:2s;"></span>
 
     <span class="circle" style="top:110%; left:0%; animation-delay:1s;"></span>
@@ -275,72 +295,83 @@
     
 
 
-   <span class="square" style="top:95%; left:25%; animation-delay:1s;"></span>
+   <span class="square" style="top:95%; left:25%; animation-delay:4s;"></span>
  
-    <span class="triangle" style="top:100%; left:15%; animation-delay:0s;"></span> 
-    <span class="triangle" style="top:100%; left:97%; animation-delay:1s;"></span>
-    <span class="square" style="top:95%; left:100%; animation-delay:0s;"></span>
+
+    <span class="triangle" style="top:100%; left:97%; animation-delay:0s;"></span>
+    <span class="square" style="top:95%; left:100%; animation-delay:5s;"></span>
     
-    <div class="output-container">
-      <img src="images/jobbeme.jpg" alt="My Picture" class="me-img">
+
+  </div>
+
+  <div class="output-container">
+    <img src="images/jobbeme.jpg" alt="My Picture" class="me-img">
     <div class="badge">Player 227</div>
-<div class="output-container">
+
+    <h2>Introduction</h2>
+    <p>Hi! I’m <strong>Alleonah T. Desucatan</strong> — but you can call me <strong>Yuna or Yon</strong>. I’m a creative soul who loves art, technology, and storytelling through design. This page is all about who I am, what I love, and what drives me to grow every day. Welcome to my world!</p>
+
     <h2>Basic Information</h2>
     <ul>
       <li>Name: ALLEONAH T. DESUCATAN</li>
       <li>Nickname: YUNA/YON</li>
-      <li>Email:alleonahdesucatan43@gmail.com</li>
+      <li>Email: alleonahdesucatan43@gmail.com</li>
       <li>Age: 18 YEARS OLD</li>
       <li>Birthday: MARCH 27, 2007</li>
-      <li>Hometown: BABAG 2, PUROK SUPERSUNLIGHT,RADAR LAPU - LAPU CITY</li>
-      <li>School: LAPU - LAPU CITY COLLEGE</li>
-      <li>Course: BACHELOR IN INDUSTRIAL TACHNOLOGY - MAJOR IN COMPUTER </li>
+      <li>Hometown: BABAG 2, PUROK SUPERSUNLIGHT, RADAR LAPU-LAPU CITY</li>
+      <li>School: LAPU-LAPU CITY COLLEGE</li>
+      <li>Course: BACHELOR IN INDUSTRIAL TECHNOLOGY – MAJOR IN COMPUTER</li>
     </ul>
 
     <h2>Likes & Dislike</h2>
     <ul>
-      <li>Like:
-        <ol>EAT FOOD</ol>
-        <ol>DRAW</ol>
-        <ol>CLEANING</ol>
-        <ol>WATCH KDRAMA</ol>
-      </li>
-      <li>Dislike:
-        <ol>MESSY PLACE</ol>
-        <ol>RACIST PEOPLE</ol>
-      </li>
+      <li>Like: EAT FOOD, DRAW, CLEANING, WATCH KDRAMA</li>
+      <li>Dislike: MESSY PLACE, RACIST PEOPLE</li>
     </ul>
 
     <h2>My Favorites</h2>
     <ul>
-      <li>Color: CYAN , BABY BLUE & LILAC</li>
+      <li>Color: CYAN, BABY BLUE & LILAC</li>
       <li>Food: LUMPIA & PANSIT 🍜</li>
       <li>Delicacies: PUTO BONG-BONG, KUTSINTA & PASTA</li>
       <li>Snacks: CHEESE RING & BENGBENG 🧀🍫</li>
       <li>Entertainment: K-POP, KDRAMA, MOVIES OR ANIMATED MOVIES 🎶🎥</li>
     </ul>
 
+    <h2>Personality & Strengths</h2>
+    <p>I’m an optimistic and hardworking person who enjoys both creativity and problem-solving. I love working on new projects that let me express myself and help others. My strengths are adaptability, teamwork, and a positive attitude — I always try to find the good in every challenge.</p>
+
     <h2>Follow Me On</h2>
     <div class="social-links">
-      <a href="https://www.facebook.com/alleonah.desucatan.3?rdid=oUDCrK6x3km1vSAq&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17K8csw4ZZ%2F#" target="_blank">Facebook</a>
+      <a href="https://www.facebook.com/alleonah.desucatan.3" target="_blank">Facebook</a>
       <a href="https://www.instagram.com/allyonzzzz/" target="_blank">Instagram</a>
       <a href="https://www.tiktok.com/@yonzz3333" target="_blank">TikTok</a>
     </div>
-    
+
+
+  <div class="output-container">
+    <h2>Inspiration, Goals, Values & Motto</h2>
+    <p><strong>🌟 Inspiration:</strong> My family, faith, and friends inspire me to stay strong and keep pushing forward no matter how hard life gets. They remind me that I’m never alone in my journey.</p>
+    <p><strong>🎯 Goals:</strong> My goal is to become a successful graphic designer and web developer, combining creativity and technology to build something meaningful and inspiring for others.</p>
+    <p><strong>💖 Values:</strong> I value honesty, respect, creativity, and kindness. I believe that treating others with love and being true to myself will always lead me in the right direction.</p>
+    <p><strong>💬 Motto:</strong> “Every challenge is a chance to grow.” I live by this because I believe that even mistakes can turn into lessons that make us stronger and wiser.</p>
+  
+  
+    <div class="pictures">
+      <img src="images/fampic13.jpg" alt="my hobbies">
+      <img src="images/fampic11.jpg" alt="little me">
+      <img src="images/fampic6.jpg" alt="ANOTHER">
+    </div>
 </div>
-    
-    <audio controls autoplay src="Nebula.mp3">  </audio>
-    
+
+<div>
+    <audio controls autoplay src="Nebula.mp3"></audio>
   </div>
 
-  
-  <footer>
-    © 2025 Alleonah | Know me 🦑
-  </footer>
+  </div>
 
-  
-
-
-  </script>
+  <footer>© 2025 Alleonah | Know me 🦑</footer>
 </body>
 </html>
+
+
